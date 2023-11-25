@@ -1,0 +1,97 @@
+#########################################################
+# This file defines all the needed configurations for this project
+
+project_name: &project_name
+  project: "MountainCarContinuous-v0 using SAC"
+
+training_configs: &training_configs
+  optimizer: Adam    # was a try at 14.Nov.2023
+  learning_rate: 3.0e-5
+  batch_size: &batch_size 64
+  plan_length: 0
+  epsilon_threshold: 0.1    # this is the initial value of epsilon and will be updated during training
+  eta: 0.002    # for target network update (the same as in SAC)
+  alpha: 0.05    # temperature term for cross entropy
+  gamma: 0.98   # decay factor to stabilize Q values
+  reward_scale: 1.0   # scaling factor for reward
+  logging_frequency: 1000  # log every logging_frequency steps
+  max_steps: 9000
+  mu_clip: True
+  commentary:
+    clip of log_sigma is established and set to (-0.1, 30 * (env.action_high - env.action_low))  
+    sigmoid clip of mu is add and set to 3 * (env.action_low, env.action_high)    
+    the way to get sigma is optimized.  
+    Trying out all the learning_rate and alpha values here.
+
+neural_network_configs: &neural_network_configs
+  hidden_layer_size: 256
+  hidden_layer_number: 2
+  device: &device
+    "cuda"
+
+configs:
+  Training:
+    # name: "Training config"
+    <<: *project_name
+    <<: *training_configs
+
+  Wandb:
+    # name: "wandb.ai config"
+    <<: *project_name
+    config:
+      <<: *training_configs
+      <<: *neural_network_configs
+
+  Env:
+    # name: "env config"
+    env_name: "MountainCarContinuous-v0"
+    random_seed: null
+
+    wrapper_ImageChannelFirst: True
+    wrapper_RescaleAction: True
+    wrapper_RescaleAction_min: -1
+    wrapper_RescaleAction_max: 1
+    wrapper_ContinuousActionClip: True
+    wrapper_AutoReset: True
+    render_mode: "human"
+
+  NeuralNetwork:
+    # name: "neural network config"
+    <<: *neural_network_configs
+
+  ReplayBuffer:
+    # name: "Replay Buffer"
+    buffer_size: 100000
+    batch_size: *batch_size
+    device: *device
+
+  SavingModel:
+    # name: "all the things need to be saved in the file"
+    gru_params:
+      mlp_s2z: mlp_s2z
+      mlp_z2mu: mlp_z2mu
+      mlp_z2sigma: mlp_z2sigma
+      mlp_z2h: mlp_z2h
+      gru: gru
+      mlp_gru_output2a: mlp_gru_output2a
+    lstm_params:
+      mlp_s2lstm_1: mlp_s2lstm_1
+      lstm_1: lstm_1
+      mlp_lstm_output_first_net_1: mlp_lstm_output_first_net_1
+      mlp_lstm_output_1: mlp_lstm_output_1
+      mlp_s2lstm_2: mlp_s2lstm_2
+      lstm_2: lstm_2
+      mlp_lstm_output_first_net_2: mlp_lstm_output_first_net_2
+      mlp_lstm_output_2: mlp_lstm_output_2
+    lstm_target_params:
+      mlp_s2lstm_target_1: mlp_s2lstm_target_1
+      lstm_target_1: lstm_target_1
+      mlp_lstm_output_first_net_target_1: mlp_lstm_output_first_net_target_1
+      mlp_lstm_output_target_1: mlp_lstm_output_target_1
+      mlp_s2lstm_target_2: mlp_s2lstm_target_2
+      lstm_target_2: lstm_target_2
+      mlp_lstm_output_first_net_target_2: mlp_lstm_output_first_net_target_2
+      mlp_lstm_output_target_2: mlp_lstm_output_target_2
+    others:
+      alpha: alpha
+      epsilon_threshold: epsilon_threshold
