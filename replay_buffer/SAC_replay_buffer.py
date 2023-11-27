@@ -15,12 +15,12 @@ import time
 import random
 from collections import namedtuple, deque
 import torch
+import numpy as np
 
 from config.parse_config import ParseConfig
 
 # Define a named tuple to represent a single experience
-Experience = namedtuple('Experience', ('state', 'action_sequence',
-                                       'current_action_sequence_length', 'reward', 'next_state', 'done'))
+Experience = namedtuple('Experience', ('state', 'action', 'reward', 'next_state', 'done'))
 
 
 class ReplayBuffer:
@@ -45,15 +45,14 @@ class ReplayBuffer:
         else:
             raise TypeError("To be used device must be cuda or cpu")
 
-    def add(self, state, action_sequence, current_action_sequence_length, reward, next_state, done):
+    def add(self, state, action, reward, next_state, done):
         """
         Add a new experience to memory
         :return: None
         """
         experience = Experience(
             state=state,
-            action_sequence=action_sequence,
-            current_action_sequence_length=current_action_sequence_length,
+            action=action,
             reward=reward,
             next_state=next_state,
             done=done,
@@ -68,19 +67,29 @@ class ReplayBuffer:
         # randomly select samples
         experiences = random.sample(self._memory, k=self._batch_size)
 
-        # transform them to the expected tensor devices
-        states = torch.stack([e.state for e in experiences]).to(self._device).view(self._batch_size, -1)
-        actions_sequence = torch.stack(
-            [e.action_sequence for e in experiences]).to(self._device).view(self._batch_size, -1)
-        current_action_sequence_length = torch.tensor([
-            e.current_action_sequence_length
-            for e in experiences], dtype=torch.float).to(self._device).view(self._batch_size, -1)
-        rewards = torch.tensor(
-            [e.reward for e in experiences], dtype=torch.float).to(self._device).view(self._batch_size, -1)
-        next_states = torch.stack([e.next_state for e in experiences]).to(self._device).view(self._batch_size, -1)
-        dones = torch.tensor([e.done for e in experiences]).to(self._device).view(self._batch_size, -1)
+        # Initialize empty lists to collect samples
+        states = []
+        actions = []
+        rewards = []
+        next_states = []
+        dones = []
 
-        return states, actions_sequence, current_action_sequence_length, rewards, next_states, dones
+        # Collect samples
+        for e in experiences:
+            states.append(torch.tensor(e.state, dtype=torch.float).to(self._device))
+            actions.append(torch.tensor(e.action, dtype=torch.float).to(self._device))
+            rewards.append(torch.tensor(e.reward, dtype=torch.float).to(self._device))
+            next_states.append(torch.tensor(e.next_state, dtype=torch.float).to(self._device))
+            dones.append(torch.tensor(e.done, dtype=torch.float).to(self._device))
+
+        # Stack collected samples into tensors
+        states = torch.stack(states).to(self._device).view(self._batch_size, -1)
+        actions = torch.stack(actions).to(self._device).view(self._batch_size, -1)
+        rewards = torch.stack(rewards).to(self._device).view(self._batch_size, -1)
+        next_states = torch.stack(next_states).to(self._device).view(self._batch_size, -1)
+        dones = torch.stack(dones).to(self._device).view(self._batch_size, -1)
+
+        return states, actions, rewards, next_states, dones
 
     def __len__(self):
         """

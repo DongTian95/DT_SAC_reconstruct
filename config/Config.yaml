@@ -2,7 +2,7 @@
 # This file defines all the needed configurations for this project
 
 project_name: &project_name
-  project: "MountainCarContinuous-v0 using SAC"
+  project: "InvertedDoublePendulum-v4 using SAC"
 
 training_configs: &training_configs
   optimizer: Adam    # was a try at 14.Nov.2023
@@ -28,6 +28,8 @@ neural_network_configs: &neural_network_configs
   hidden_layer_number: 2
   device: &device
     "cuda"
+  random_seed: 0
+  activation_function: "ReLU"
 
 configs:
   Training:

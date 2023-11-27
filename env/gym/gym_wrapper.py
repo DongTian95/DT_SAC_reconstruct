@@ -21,6 +21,7 @@ class Gym_Wrappers:
         Returns:
             None
         """
+        ParseConfig()
         self.env_config = ParseConfig.get_env_config()
 
     def do_wrappers(self, env):

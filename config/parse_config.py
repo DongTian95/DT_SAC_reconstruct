@@ -26,7 +26,7 @@ class ParseConfig:
             cls._instances[cls] = super(ParseConfig, cls).__new__(cls)
         return cls._instances[cls]
 
-    def __init__(self, yaml_file: str = "/home/dong/Desktop/DT_GPM/config/Config.yaml"):
+    def __init__(self, yaml_file: str = "/home/dong/Desktop/DT_SAC_reconstruct/config/Config.yaml"):
         if ParseConfig.config is None:
             with open(yaml_file, 'r') as file:
                 ParseConfig.config = yaml.safe_load(file)

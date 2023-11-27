@@ -73,7 +73,6 @@ class gym_Init:
         _env_config: dict = ParseConfig.get_env_config()
 
         # Create the environment using the environment name from the configuration
-        self.env = gym.make(_env_config["env_name"], render_mode=_env_config["render_mode"])
         if visualize:
             self.env = gym.make(_env_config["env_name"], render_mode=_env_config["render_mode"])
         else:
