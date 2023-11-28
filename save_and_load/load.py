@@ -14,7 +14,7 @@ import sys
 import torch
 
 from config.parse_config import ParseConfig
-from agent.gpm_agent import GPM_Agent
+from algorithm.SAC_Algorithm import SAC_Algorithm
 
 
 class LoadModel:
@@ -28,7 +28,7 @@ class LoadModel:
             raise FileNotFoundError(f"Directory {self.saving_dir} does not exist.")
         self.saving_dir = os.path.join(self.saving_dir, "model.pth")
 
-    def load_model(self, agent: GPM_Agent):
+    def load_model(self, agent: SAC_Algorithm):
         checkpoint = torch.load(self.saving_dir)
         for key in checkpoint:
             setattr(agent, key, checkpoint[key])

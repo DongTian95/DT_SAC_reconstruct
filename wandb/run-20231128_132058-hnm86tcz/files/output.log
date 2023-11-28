@@ -1,0 +1,34 @@
+################################ Epoch:  0 ################################
+################################ Epoch:  100 ################################
+################################ Epoch:  200 ################################
+################################ Epoch:  300 ################################
+################################ Epoch:  400 ################################
+################################ Epoch:  500 ################################
+################################ Epoch:  600 ################################
+################################ Epoch:  700 ################################
+################################ Epoch:  800 ################################
+################################ Epoch:  900 ################################
+################################ Epoch:  1000 ################################
+/home/dong/miniconda3/envs/python311SAC/lib/python3.11/site-packages/gymnasium/envs/classic_control/continuous_mountain_car.py:172: DeprecationWarning: Conversion of an array with ndim > 0 to a scalar is deprecated, and will error in future. Ensure you extract a single element from your array before performing this operation. (Deprecated NumPy 1.25.)
+  reward -= math.pow(action[0], 2) * 0.1
+/home/dong/miniconda3/envs/python311SAC/lib/python3.11/site-packages/gymnasium/utils/passive_env_checker.py:159: UserWarning: [33mWARN: The obs returned by the `step()` method is not within the observation space.
+  logger.warn(f"{pre} is not within the observation space.")
+################################ Epoch:  1100 ################################
+################################ Epoch:  1200 ################################
+################################ Epoch:  1300 ################################
+/home/dong/Desktop/DT_SAC_reconstruct/replay_buffer/SAC_replay_buffer.py:79: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  states.append(torch.tensor(e.state, dtype=torch.float).to(self._device))
+/home/dong/Desktop/DT_SAC_reconstruct/replay_buffer/SAC_replay_buffer.py:80: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  actions.append(torch.tensor(e.action, dtype=torch.float).to(self._device))
+/home/dong/Desktop/DT_SAC_reconstruct/replay_buffer/SAC_replay_buffer.py:82: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  next_states.append(torch.tensor(e.next_state, dtype=torch.float).to(self._device))
+################################ Epoch:  1400 ################################
+################################ Epoch:  1500 ################################
+################################ Epoch:  1600 ################################
+################################ Epoch:  1700 ################################
+################################ Epoch:  1800 ################################
+################################ Epoch:  1900 ################################
+################################ Epoch:  2000 ################################
+################################ Epoch:  2100 ################################
+################################ Epoch:  2200 ################################
+################################ Epoch:  2300 ################################

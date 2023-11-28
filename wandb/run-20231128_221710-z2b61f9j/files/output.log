@@ -1,0 +1,25 @@
+
+################################ Epoch:  0 ################################
+Traceback (most recent call last):
+  File "/home/dong/Desktop/DT_SAC_reconstruct/start.py", line 49, in <module>
+    app.run(main)
+  File "/home/dong/miniconda3/envs/python311SAC/lib/python3.11/site-packages/absl/app.py", line 308, in run
+    _run_main(main, args)
+  File "/home/dong/miniconda3/envs/python311SAC/lib/python3.11/site-packages/absl/app.py", line 254, in _run_main
+    sys.exit(main(argv))
+             ^^^^^^^^^^
+  File "/home/dong/Desktop/DT_SAC_reconstruct/start.py", line 40, in main
+    test.train()
+  File "/home/dong/Desktop/DT_SAC_reconstruct/algorithm/SAC_Algorithm.py", line 102, in train
+    self.action_tensor, _ = self.actor_net(next_state_tensor)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dong/miniconda3/envs/python311SAC/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dong/miniconda3/envs/python311SAC/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dong/Desktop/DT_SAC_reconstruct/agent/policy.py", line 119, in forward
+    if ParseConfig.get_neural_network_config()["gSDE"]:
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+KeyError: 'gSDE'

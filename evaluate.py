@@ -11,7 +11,7 @@
 import os
 import sys
 
-from algorithm.gpm_algorithm import GPM_Algorithm
+from algorithm.SAC_Algorithm import SAC_Algorithm
 from config.parse_config import ParseConfig
 from save_and_load.load import LoadModel
 
@@ -23,8 +23,8 @@ if __name__ == "__main__":  # test function, DO NOT use it in a normal way
 
     environment = gym_Init(visualize=True)
 
-    test = GPM_Algorithm(envir=environment)
+    test = SAC_Algorithm(env=environment)
     load = LoadModel()
-    load.load_model(agent=test.agent)
+    load.load_model(agent=test)
     while True:
         test.evaluate()

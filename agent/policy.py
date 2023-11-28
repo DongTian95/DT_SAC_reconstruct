@@ -65,7 +65,18 @@ class SAC_Policy(th.nn.Module):
             else:
                 raise ValueError(f"Activation function {activation_function} is not valid!")
         # mu Network
-        self.mu_layer = th.nn.Linear(hidden_size, action_size, device=self.device)
+        if ParseConfig.get_neural_network_config()["enhance_mu"]:
+            self.mu_layers = th.nn.ModuleList()
+            for _ in range(hidden_num):
+                self.mu_layers.append(th.nn.Linear(hidden_size, hidden_size, device=self.device))
+                if hasattr(th.nn, activation_function):
+                    self.mu_layers.append(getattr(th.nn, activation_function)())
+                else:
+                    raise ValueError(f"Activation function {activation_function} is not valid!")
+            self.mu_layers.append(th.nn.Linear(hidden_size, action_size, device=self.device))
+        else:
+            self.mu_layer = th.nn.Linear(hidden_size, action_size, device=self.device)
+
         # sigma Network
         # TODO:Should be optimized here, the situation that action_size is not 1 is not considered!
         self.log_sigma_layer = th.nn.Linear(hidden_size, action_size, device=self.device)
@@ -76,6 +87,10 @@ class SAC_Policy(th.nn.Module):
         else:
             raise ValueError(f"Optimizer {optimizer} is not valid!")
 
+        # For logger
+        self.mu = None
+        self.sigma = None
+
     def forward(self, observation, deterministic: bool = False):
         batch_size = observation.shape[0]
         state = observation.view(batch_size, -1)
@@ -85,10 +100,28 @@ class SAC_Policy(th.nn.Module):
             state = layer(state)
 
         # mu and sigma part
-        mu = self.mu_layer(state)
+        if ParseConfig.get_neural_network_config()["enhance_mu"]:
+            mu_state = state
+            for layer in self.mu_layers:
+                mu_state = layer(mu_state)
+            mu = mu_state
+            mu = th.sigmoid(mu)
+            action_max = self.env.action_space_high * 3
+            action_min = self.env.action_space_low * 3
+            mu = (action_max - action_min) * mu + action_min
+        else:
+            mu = self.mu_layer(state)
+        # Save mu for logger
+        self.mu = mu
         log_sigma = self.log_sigma_layer(state)
+        # Following the instruction from Stable-Baselines3
         log_sigma = th.clamp(log_sigma, -20, 2)
-        sigma = th.exp(log_sigma)
+        if ParseConfig.get_neural_network_config()["gSDE"]:
+            sigma = self._get_std(log_sigma)
+        else:
+            sigma = th.exp(log_sigma)
+        # Save sigma for logger
+        self.sigma = sigma
 
         # sample from the normal distribution
         normal_distribution = th.distributions.Normal(mu, sigma)
@@ -103,6 +136,19 @@ class SAC_Policy(th.nn.Module):
         action = th.tanh(action)
 
         return action, log_prob
+
+    @staticmethod
+    def _get_std(log_std: th.Tensor) -> th.Tensor:
+        """
+        The way to deal with the std is based on the article of gSDE
+        It prevents the std from changing too quickly
+        :return:
+        """
+        below_threshold = th.where(log_std <= 0, th.exp(log_std), 0.0)
+        safe_log_std = log_std * (log_std > 0) + 1.0e-6
+        above_threshold = (th.log1p(safe_log_std) + 1.0) * (log_std > 0)
+        std = below_threshold + above_threshold
+        return std
 
 
 if __name__ == "__main__":  # test function, DO NOT use it in a normal way

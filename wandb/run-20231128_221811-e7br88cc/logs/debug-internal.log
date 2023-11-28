@@ -1,0 +1,166 @@
+2023-11-28 22:18:11,269 INFO    StreamThr :14944 [internal.py:wandb_internal():86] W&B internal server running at pid: 14944, started at: 2023-11-28 22:18:11.269051
+2023-11-28 22:18:11,271 DEBUG   HandlerThread:14944 [handler.py:handle_request():146] handle_request: status
+2023-11-28 22:18:11,272 INFO    WriterThread:14944 [datastore.py:open_for_write():85] open: /home/dong/Desktop/DT_SAC_reconstruct/wandb/run-20231128_221811-e7br88cc/run-e7br88cc.wandb
+2023-11-28 22:18:11,272 DEBUG   SenderThread:14944 [sender.py:send():380] send: header
+2023-11-28 22:18:11,274 DEBUG   SenderThread:14944 [sender.py:send():380] send: run
+2023-11-28 22:18:11,811 INFO    SenderThread:14944 [dir_watcher.py:__init__():211] watching files in: /home/dong/Desktop/DT_SAC_reconstruct/wandb/run-20231128_221811-e7br88cc/files
+2023-11-28 22:18:11,811 INFO    SenderThread:14944 [sender.py:_start_run_threads():1124] run started: e7br88cc with start time 1701206291.268991
+2023-11-28 22:18:11,819 DEBUG   HandlerThread:14944 [handler.py:handle_request():146] handle_request: check_version
+2023-11-28 22:18:11,819 DEBUG   SenderThread:14944 [sender.py:send_request():407] send_request: check_version
+2023-11-28 22:18:11,984 DEBUG   HandlerThread:14944 [handler.py:handle_request():146] handle_request: run_start
+2023-11-28 22:18:12,017 DEBUG   HandlerThread:14944 [system_info.py:__init__():32] System info init
+2023-11-28 22:18:12,017 DEBUG   HandlerThread:14944 [system_info.py:__init__():47] System info init done
+2023-11-28 22:18:12,017 INFO    HandlerThread:14944 [system_monitor.py:start():194] Starting system monitor
+2023-11-28 22:18:12,017 INFO    SystemMonitor:14944 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2023-11-28 22:18:12,018 INFO    HandlerThread:14944 [system_monitor.py:probe():214] Collecting system info
+2023-11-28 22:18:12,019 INFO    SystemMonitor:14944 [interfaces.py:start():190] Started cpu monitoring
+2023-11-28 22:18:12,019 INFO    SystemMonitor:14944 [interfaces.py:start():190] Started disk monitoring
+2023-11-28 22:18:12,020 INFO    SystemMonitor:14944 [interfaces.py:start():190] Started gpu monitoring
+2023-11-28 22:18:12,021 INFO    SystemMonitor:14944 [interfaces.py:start():190] Started memory monitoring
+2023-11-28 22:18:12,021 INFO    SystemMonitor:14944 [interfaces.py:start():190] Started network monitoring
+2023-11-28 22:18:12,043 DEBUG   HandlerThread:14944 [system_info.py:probe():196] Probing system
+2023-11-28 22:18:12,046 DEBUG   HandlerThread:14944 [system_info.py:_probe_git():181] Probing git
+2023-11-28 22:18:12,050 DEBUG   HandlerThread:14944 [system_info.py:_probe_git():189] Probing git done
+2023-11-28 22:18:12,050 DEBUG   HandlerThread:14944 [system_info.py:probe():244] Probing system done
+2023-11-28 22:18:12,050 DEBUG   HandlerThread:14944 [system_monitor.py:probe():223] {'os': 'Linux-5.15.0-89-generic-x86_64-with-glibc2.31', 'python': '3.11.5', 'heartbeatAt': '2023-11-28T21:18:12.043861', 'startedAt': '2023-11-28T21:18:11.263548', 'docker': None, 'cuda': None, 'args': ('--wandb_on=T', '--visualize_on=F'), 'state': 'running', 'program': '/home/dong/Desktop/DT_SAC_reconstruct/start.py', 'codePathLocal': 'start.py', 'codePath': 'start.py', 'git': {'remote': 'https://github.com/DongTian95/DT_SAC_reconstruct.git', 'commit': '632c85a7a4d9e13f675ba92cbd4256a49d669558'}, 'email': 'dong.tian@outlook.de', 'root': '/home/dong/Desktop/DT_SAC_reconstruct', 'host': 'dong-IdeaCentre-Gaming5-14ACN6', 'username': 'dong', 'executable': '/home/dong/miniconda3/envs/python311SAC/bin/python', 'cpu_count': 6, 'cpu_count_logical': 12, 'cpu_freq': {'current': 1701.1476666666667, 'min': 1400.0, 'max': 3900.0}, 'cpu_freq_per_core': [{'current': 1400.0, 'min': 1400.0, 'max': 3900.0}, {'current': 1400.0, 'min': 1400.0, 'max': 3900.0}, {'current': 1400.0, 'min': 1400.0, 'max': 3900.0}, {'current': 1400.0, 'min': 1400.0, 'max': 3900.0}, {'current': 1400.0, 'min': 1400.0, 'max': 3900.0}, {'current': 1700.0, 'min': 1400.0, 'max': 3900.0}, {'current': 1400.0, 'min': 1400.0, 'max': 3900.0}, {'current': 1400.0, 'min': 1400.0, 'max': 3900.0}, {'current': 1825.321, 'min': 1400.0, 'max': 3900.0}, {'current': 1400.0, 'min': 1400.0, 'max': 3900.0}, {'current': 1400.0, 'min': 1400.0, 'max': 3900.0}, {'current': 1700.0, 'min': 1400.0, 'max': 3900.0}], 'disk': {'/': {'total': 467.8895797729492, 'used': 62.542232513427734}}, 'gpu': 'NVIDIA GeForce RTX 3060', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA GeForce RTX 3060', 'memory_total': 12884901888}], 'memory': {'total': 14.971176147460938}}
+2023-11-28 22:18:12,050 INFO    HandlerThread:14944 [system_monitor.py:probe():224] Finished collecting system info
+2023-11-28 22:18:12,050 INFO    HandlerThread:14944 [system_monitor.py:probe():227] Publishing system info
+2023-11-28 22:18:12,050 DEBUG   HandlerThread:14944 [system_info.py:_save_pip():52] Saving list of pip packages installed into the current environment
+2023-11-28 22:18:12,050 DEBUG   HandlerThread:14944 [system_info.py:_save_pip():68] Saving pip packages done
+2023-11-28 22:18:12,050 DEBUG   HandlerThread:14944 [system_info.py:_save_conda():75] Saving list of conda packages installed into the current environment
+2023-11-28 22:18:12,811 INFO    Thread-12 :14944 [dir_watcher.py:_on_file_created():271] file/dir created: /home/dong/Desktop/DT_SAC_reconstruct/wandb/run-20231128_221811-e7br88cc/files/requirements.txt
+2023-11-28 22:18:12,811 INFO    Thread-12 :14944 [dir_watcher.py:_on_file_created():271] file/dir created: /home/dong/Desktop/DT_SAC_reconstruct/wandb/run-20231128_221811-e7br88cc/files/conda-environment.yaml
+2023-11-28 22:18:13,583 DEBUG   HandlerThread:14944 [system_info.py:_save_conda():87] Saving conda packages done
+2023-11-28 22:18:13,584 INFO    HandlerThread:14944 [system_monitor.py:probe():229] Finished publishing system info
+2023-11-28 22:18:13,585 DEBUG   SenderThread:14944 [sender.py:send():380] send: files
+2023-11-28 22:18:13,585 INFO    SenderThread:14944 [sender.py:_save_file():1380] saving file wandb-metadata.json with policy now
+2023-11-28 22:18:13,589 DEBUG   SenderThread:14944 [sender.py:send():380] send: telemetry
+2023-11-28 22:18:13,590 DEBUG   HandlerThread:14944 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-28 22:18:13,590 DEBUG   HandlerThread:14944 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-28 22:18:13,590 DEBUG   SenderThread:14944 [sender.py:send_request():407] send_request: stop_status
+2023-11-28 22:18:13,811 INFO    Thread-12 :14944 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dong/Desktop/DT_SAC_reconstruct/wandb/run-20231128_221811-e7br88cc/files/conda-environment.yaml
+2023-11-28 22:18:13,811 INFO    Thread-12 :14944 [dir_watcher.py:_on_file_created():271] file/dir created: /home/dong/Desktop/DT_SAC_reconstruct/wandb/run-20231128_221811-e7br88cc/files/wandb-metadata.json
+2023-11-28 22:18:14,198 INFO    wandb-upload_0:14944 [upload_job.py:push():131] Uploaded file /tmp/tmp2gcef9xcwandb/n3kkfum4-wandb-metadata.json
+2023-11-28 22:18:14,534 DEBUG   HandlerThread:14944 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-28 22:18:14,535 DEBUG   SenderThread:14944 [sender.py:send():380] send: history
+2023-11-28 22:18:14,535 DEBUG   SenderThread:14944 [sender.py:send_request():407] send_request: summary_record
+2023-11-28 22:18:14,536 INFO    SenderThread:14944 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-11-28 22:18:14,811 INFO    Thread-12 :14944 [dir_watcher.py:_on_file_created():271] file/dir created: /home/dong/Desktop/DT_SAC_reconstruct/wandb/run-20231128_221811-e7br88cc/files/wandb-summary.json
+2023-11-28 22:18:14,811 INFO    Thread-12 :14944 [dir_watcher.py:_on_file_created():271] file/dir created: /home/dong/Desktop/DT_SAC_reconstruct/wandb/run-20231128_221811-e7br88cc/files/output.log
+2023-11-28 22:18:16,257 DEBUG   HandlerThread:14944 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-28 22:18:16,258 DEBUG   SenderThread:14944 [sender.py:send():380] send: history
+2023-11-28 22:18:16,258 DEBUG   SenderThread:14944 [sender.py:send_request():407] send_request: summary_record
+2023-11-28 22:18:16,258 INFO    SenderThread:14944 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-11-28 22:18:16,392 DEBUG   HandlerThread:14944 [handler.py:handle_request():146] handle_request: status_report
+2023-11-28 22:18:16,811 INFO    Thread-12 :14944 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dong/Desktop/DT_SAC_reconstruct/wandb/run-20231128_221811-e7br88cc/files/wandb-summary.json
+2023-11-28 22:18:16,811 INFO    Thread-12 :14944 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dong/Desktop/DT_SAC_reconstruct/wandb/run-20231128_221811-e7br88cc/files/output.log
+2023-11-28 22:18:18,075 DEBUG   HandlerThread:14944 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-28 22:18:18,076 DEBUG   SenderThread:14944 [sender.py:send():380] send: history
+2023-11-28 22:18:18,076 DEBUG   SenderThread:14944 [sender.py:send_request():407] send_request: summary_record
+2023-11-28 22:18:18,076 INFO    SenderThread:14944 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-11-28 22:18:18,812 INFO    Thread-12 :14944 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dong/Desktop/DT_SAC_reconstruct/wandb/run-20231128_221811-e7br88cc/files/wandb-summary.json
+2023-11-28 22:18:18,812 INFO    Thread-12 :14944 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dong/Desktop/DT_SAC_reconstruct/wandb/run-20231128_221811-e7br88cc/files/output.log
+2023-11-28 22:18:19,815 DEBUG   HandlerThread:14944 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-28 22:18:19,816 DEBUG   SenderThread:14944 [sender.py:send():380] send: history
+2023-11-28 22:18:19,816 DEBUG   SenderThread:14944 [sender.py:send_request():407] send_request: summary_record
+2023-11-28 22:18:19,816 INFO    SenderThread:14944 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-11-28 22:18:20,812 INFO    Thread-12 :14944 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dong/Desktop/DT_SAC_reconstruct/wandb/run-20231128_221811-e7br88cc/files/wandb-summary.json
+2023-11-28 22:18:20,812 INFO    Thread-12 :14944 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dong/Desktop/DT_SAC_reconstruct/wandb/run-20231128_221811-e7br88cc/files/output.log
+2023-11-28 22:18:21,581 DEBUG   HandlerThread:14944 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-28 22:18:21,582 DEBUG   SenderThread:14944 [sender.py:send():380] send: history
+2023-11-28 22:18:21,582 DEBUG   SenderThread:14944 [sender.py:send_request():407] send_request: summary_record
+2023-11-28 22:18:21,582 DEBUG   HandlerThread:14944 [handler.py:handle_request():146] handle_request: status_report
+2023-11-28 22:18:21,582 INFO    SenderThread:14944 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-11-28 22:18:21,812 INFO    Thread-12 :14944 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dong/Desktop/DT_SAC_reconstruct/wandb/run-20231128_221811-e7br88cc/files/wandb-summary.json
+2023-11-28 22:18:22,813 INFO    Thread-12 :14944 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dong/Desktop/DT_SAC_reconstruct/wandb/run-20231128_221811-e7br88cc/files/output.log
+2023-11-28 22:18:23,409 DEBUG   HandlerThread:14944 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-28 22:18:23,409 DEBUG   SenderThread:14944 [sender.py:send():380] send: history
+2023-11-28 22:18:23,409 DEBUG   SenderThread:14944 [sender.py:send_request():407] send_request: summary_record
+2023-11-28 22:18:23,410 INFO    SenderThread:14944 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-11-28 22:18:23,813 INFO    Thread-12 :14944 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dong/Desktop/DT_SAC_reconstruct/wandb/run-20231128_221811-e7br88cc/files/wandb-summary.json
+2023-11-28 22:18:24,813 INFO    Thread-12 :14944 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dong/Desktop/DT_SAC_reconstruct/wandb/run-20231128_221811-e7br88cc/files/output.log
+2023-11-28 22:18:25,814 INFO    Thread-12 :14944 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dong/Desktop/DT_SAC_reconstruct/wandb/run-20231128_221811-e7br88cc/files/output.log
+2023-11-28 22:18:26,814 INFO    Thread-12 :14944 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dong/Desktop/DT_SAC_reconstruct/wandb/run-20231128_221811-e7br88cc/files/output.log
+2023-11-28 22:18:27,170 DEBUG   HandlerThread:14944 [handler.py:handle_request():146] handle_request: status_report
+2023-11-28 22:18:28,588 DEBUG   HandlerThread:14944 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-28 22:18:28,589 DEBUG   SenderThread:14944 [sender.py:send_request():407] send_request: stop_status
+2023-11-28 22:18:28,590 DEBUG   HandlerThread:14944 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-28 22:18:28,815 INFO    Thread-12 :14944 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dong/Desktop/DT_SAC_reconstruct/wandb/run-20231128_221811-e7br88cc/files/output.log
+2023-11-28 22:18:30,815 INFO    Thread-12 :14944 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dong/Desktop/DT_SAC_reconstruct/wandb/run-20231128_221811-e7br88cc/files/output.log
+2023-11-28 22:18:32,203 DEBUG   HandlerThread:14944 [handler.py:handle_request():146] handle_request: status_report
+2023-11-28 22:18:34,816 INFO    Thread-12 :14944 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dong/Desktop/DT_SAC_reconstruct/wandb/run-20231128_221811-e7br88cc/files/output.log
+2023-11-28 22:18:37,797 DEBUG   HandlerThread:14944 [handler.py:handle_request():146] handle_request: status_report
+2023-11-28 22:18:38,817 INFO    Thread-12 :14944 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dong/Desktop/DT_SAC_reconstruct/wandb/run-20231128_221811-e7br88cc/files/output.log
+2023-11-28 22:18:40,817 INFO    Thread-12 :14944 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dong/Desktop/DT_SAC_reconstruct/wandb/run-20231128_221811-e7br88cc/files/output.log
+2023-11-28 22:18:42,955 DEBUG   HandlerThread:14944 [handler.py:handle_request():146] handle_request: status_report
+2023-11-28 22:18:43,588 DEBUG   HandlerThread:14944 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-28 22:18:43,589 DEBUG   SenderThread:14944 [sender.py:send_request():407] send_request: stop_status
+2023-11-28 22:18:43,590 DEBUG   HandlerThread:14944 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-28 22:18:43,818 INFO    Thread-12 :14944 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dong/Desktop/DT_SAC_reconstruct/wandb/run-20231128_221811-e7br88cc/files/config.yaml
+2023-11-28 22:18:44,818 INFO    Thread-12 :14944 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dong/Desktop/DT_SAC_reconstruct/wandb/run-20231128_221811-e7br88cc/files/output.log
+2023-11-28 22:18:46,819 INFO    Thread-12 :14944 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dong/Desktop/DT_SAC_reconstruct/wandb/run-20231128_221811-e7br88cc/files/output.log
+2023-11-28 22:18:48,794 DEBUG   HandlerThread:14944 [handler.py:handle_request():146] handle_request: status_report
+2023-11-28 22:18:50,820 INFO    Thread-12 :14944 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dong/Desktop/DT_SAC_reconstruct/wandb/run-20231128_221811-e7br88cc/files/output.log
+2023-11-28 22:18:51,555 DEBUG   HandlerThread:14944 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-28 22:18:51,556 DEBUG   SenderThread:14944 [sender.py:send():380] send: history
+2023-11-28 22:18:51,556 DEBUG   SenderThread:14944 [sender.py:send_request():407] send_request: summary_record
+2023-11-28 22:18:51,556 INFO    SenderThread:14944 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-11-28 22:18:51,820 INFO    Thread-12 :14944 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dong/Desktop/DT_SAC_reconstruct/wandb/run-20231128_221811-e7br88cc/files/wandb-summary.json
+2023-11-28 22:18:52,820 INFO    Thread-12 :14944 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dong/Desktop/DT_SAC_reconstruct/wandb/run-20231128_221811-e7br88cc/files/output.log
+2023-11-28 22:18:54,531 DEBUG   HandlerThread:14944 [handler.py:handle_request():146] handle_request: status_report
+2023-11-28 22:18:56,821 INFO    Thread-12 :14944 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dong/Desktop/DT_SAC_reconstruct/wandb/run-20231128_221811-e7br88cc/files/output.log
+2023-11-28 22:18:58,589 DEBUG   HandlerThread:14944 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-28 22:18:58,589 DEBUG   HandlerThread:14944 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-28 22:18:58,589 DEBUG   SenderThread:14944 [sender.py:send_request():407] send_request: stop_status
+2023-11-28 22:18:59,856 DEBUG   HandlerThread:14944 [handler.py:handle_request():146] handle_request: status_report
+2023-11-28 22:19:00,822 INFO    Thread-12 :14944 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dong/Desktop/DT_SAC_reconstruct/wandb/run-20231128_221811-e7br88cc/files/output.log
+2023-11-28 22:19:02,823 INFO    Thread-12 :14944 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dong/Desktop/DT_SAC_reconstruct/wandb/run-20231128_221811-e7br88cc/files/output.log
+2023-11-28 22:19:04,824 INFO    Thread-12 :14944 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dong/Desktop/DT_SAC_reconstruct/wandb/run-20231128_221811-e7br88cc/files/output.log
+2023-11-28 22:19:05,263 DEBUG   HandlerThread:14944 [handler.py:handle_request():146] handle_request: status_report
+2023-11-28 22:19:08,825 INFO    Thread-12 :14944 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dong/Desktop/DT_SAC_reconstruct/wandb/run-20231128_221811-e7br88cc/files/output.log
+2023-11-28 22:19:10,323 DEBUG   HandlerThread:14944 [handler.py:handle_request():146] handle_request: status_report
+2023-11-28 22:19:10,826 INFO    Thread-12 :14944 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dong/Desktop/DT_SAC_reconstruct/wandb/run-20231128_221811-e7br88cc/files/output.log
+2023-11-28 22:19:12,021 DEBUG   SystemMonitor:14944 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2023-11-28 22:19:12,022 DEBUG   SenderThread:14944 [sender.py:send():380] send: stats
+2023-11-28 22:19:13,588 DEBUG   HandlerThread:14944 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-28 22:19:13,589 DEBUG   SenderThread:14944 [sender.py:send_request():407] send_request: stop_status
+2023-11-28 22:19:13,589 DEBUG   HandlerThread:14944 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-28 22:19:14,827 INFO    Thread-12 :14944 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dong/Desktop/DT_SAC_reconstruct/wandb/run-20231128_221811-e7br88cc/files/output.log
+2023-11-28 22:19:16,243 DEBUG   HandlerThread:14944 [handler.py:handle_request():146] handle_request: status_report
+2023-11-28 22:19:16,827 INFO    Thread-12 :14944 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dong/Desktop/DT_SAC_reconstruct/wandb/run-20231128_221811-e7br88cc/files/output.log
+2023-11-28 22:19:20,829 INFO    Thread-12 :14944 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dong/Desktop/DT_SAC_reconstruct/wandb/run-20231128_221811-e7br88cc/files/output.log
+2023-11-28 22:19:21,885 DEBUG   HandlerThread:14944 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-28 22:19:21,885 DEBUG   SenderThread:14944 [sender.py:send():380] send: history
+2023-11-28 22:19:21,886 DEBUG   SenderThread:14944 [sender.py:send_request():407] send_request: summary_record
+2023-11-28 22:19:21,886 DEBUG   HandlerThread:14944 [handler.py:handle_request():146] handle_request: status_report
+2023-11-28 22:19:21,886 INFO    SenderThread:14944 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-11-28 22:19:22,829 INFO    Thread-12 :14944 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dong/Desktop/DT_SAC_reconstruct/wandb/run-20231128_221811-e7br88cc/files/wandb-summary.json
+2023-11-28 22:19:22,829 INFO    Thread-12 :14944 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dong/Desktop/DT_SAC_reconstruct/wandb/run-20231128_221811-e7br88cc/files/output.log
+2023-11-28 22:19:26,830 INFO    Thread-12 :14944 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dong/Desktop/DT_SAC_reconstruct/wandb/run-20231128_221811-e7br88cc/files/output.log
+2023-11-28 22:19:27,885 DEBUG   HandlerThread:14944 [handler.py:handle_request():146] handle_request: status_report
+2023-11-28 22:19:28,588 DEBUG   HandlerThread:14944 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-28 22:19:28,589 DEBUG   SenderThread:14944 [sender.py:send_request():407] send_request: stop_status
+2023-11-28 22:19:28,589 DEBUG   HandlerThread:14944 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-28 22:19:30,832 INFO    Thread-12 :14944 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dong/Desktop/DT_SAC_reconstruct/wandb/run-20231128_221811-e7br88cc/files/output.log
+2023-11-28 22:19:32,832 INFO    Thread-12 :14944 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dong/Desktop/DT_SAC_reconstruct/wandb/run-20231128_221811-e7br88cc/files/output.log
+2023-11-28 22:19:32,975 DEBUG   HandlerThread:14944 [handler.py:handle_request():146] handle_request: status_report
+2023-11-28 22:19:36,833 INFO    Thread-12 :14944 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dong/Desktop/DT_SAC_reconstruct/wandb/run-20231128_221811-e7br88cc/files/output.log
+2023-11-28 22:19:38,105 DEBUG   HandlerThread:14944 [handler.py:handle_request():146] handle_request: status_report
+2023-11-28 22:19:38,834 INFO    Thread-12 :14944 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dong/Desktop/DT_SAC_reconstruct/wandb/run-20231128_221811-e7br88cc/files/output.log
+2023-11-28 22:19:42,022 DEBUG   SenderThread:14944 [sender.py:send():380] send: stats
+2023-11-28 22:19:42,835 INFO    Thread-12 :14944 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dong/Desktop/DT_SAC_reconstruct/wandb/run-20231128_221811-e7br88cc/files/output.log
+2023-11-28 22:19:43,173 DEBUG   HandlerThread:14944 [handler.py:handle_request():146] handle_request: status_report
+2023-11-28 22:19:43,589 DEBUG   HandlerThread:14944 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-28 22:19:43,589 DEBUG   SenderThread:14944 [sender.py:send_request():407] send_request: stop_status
+2023-11-28 22:19:43,589 DEBUG   HandlerThread:14944 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-28 22:19:44,836 INFO    Thread-12 :14944 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dong/Desktop/DT_SAC_reconstruct/wandb/run-20231128_221811-e7br88cc/files/output.log
+2023-11-28 22:19:48,255 DEBUG   HandlerThread:14944 [handler.py:handle_request():146] handle_request: status_report
+2023-11-28 22:19:48,837 INFO    Thread-12 :14944 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dong/Desktop/DT_SAC_reconstruct/wandb/run-20231128_221811-e7br88cc/files/output.log
+2023-11-28 22:19:52,838 INFO    Thread-12 :14944 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dong/Desktop/DT_SAC_reconstruct/wandb/run-20231128_221811-e7br88cc/files/output.log
+2023-11-28 22:19:53,456 DEBUG   HandlerThread:14944 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-28 22:19:53,456 DEBUG   SenderThread:14944 [sender.py:send():380] send: history
+2023-11-28 22:19:53,457 DEBUG   SenderThread:14944 [sender.py:send_request():407] send_request: summary_record
+2023-11-28 22:19:53,457 DEBUG   HandlerThread:14944 [handler.py:handle_request():146] handle_request: status_report
+2023-11-28 22:19:53,457 INFO    SenderThread:14944 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-11-28 22:19:53,838 INFO    Thread-12 :14944 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dong/Desktop/DT_SAC_reconstruct/wandb/run-20231128_221811-e7br88cc/files/wandb-summary.json
+2023-11-28 22:19:54,839 INFO    Thread-12 :14944 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dong/Desktop/DT_SAC_reconstruct/wandb/run-20231128_221811-e7br88cc/files/output.log

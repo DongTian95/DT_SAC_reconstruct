@@ -20,11 +20,13 @@ from config.parse_config import ParseConfig
 from agent.policy import SAC_Policy
 from agent.critic import SAC_Critic
 from replay_buffer.SAC_replay_buffer import ReplayBuffer
+from py_wandb.wandb_init import Wandb_Init
 
 class SAC_Algorithm:
     def __init__(
         self,
         env,
+        wandb_on: bool = False,
     ):
         self.env = env
 
@@ -60,10 +62,16 @@ class SAC_Algorithm:
             state, _ = self.env.env.reset()
         self.state_tensor = th.from_numpy(state).float().to(self.device).view(1, -1)
         action = (self.env.action_space_high + self.env.action_space_low)/2
-        self.action_tensor = th.from_numpy(action).float().to(self.device).view(1, -1)
+        self.action_tensor = th.from_numpy(np.array(action)).float().to(self.device).view(1, -1)
+
+        # Wandb init
+        if wandb_on:
+            self.wandb = Wandb_Init()
+        else:
+            self.wandb = None
         
     def train(self):
-        next_state, reward, done, truncated, info = self.env.env.step(self.action_tensor.cpu().detach().numpy())
+        next_state, reward, done, truncated, info = self.env.env.step(self.action_tensor.view(-1).cpu().detach().numpy())
         next_state_tensor = th.from_numpy(next_state).float().to(self.device).view(1, -1)
         # Scale the reward if necessary
         reward = self._scale_reward(reward)
@@ -73,7 +81,7 @@ class SAC_Algorithm:
         with th.no_grad():
             self.replay_buffer.add(
                 state=self.state_tensor,
-                action=self.action,
+                action=self.action_tensor,
                 reward=reward,
                 next_state=next_state_tensor,
                 done=done,
@@ -87,7 +95,7 @@ class SAC_Algorithm:
         # Reset the environment is needed
         if done or truncated:
             action = (self.env.action_space_high + self.env.action_space_low)/2
-            self.action_tensor = th.from_numpy(action).float().to(self.device).view(1, -1)
+            self.action_tensor = th.from_numpy(np.array(action)).float().to(self.device).view(1, -1)
             state, _ = self.env.env.reset()
             self.state_tensor = th.from_numpy(state).float().to(self.device).view(1, -1)
         else:
@@ -97,7 +105,6 @@ class SAC_Algorithm:
     def update_network(self):
         # Sample from the replay buffer
         states, actions, rewards, next_states, dones = self.replay_buffer.sample()
-        print(states.size())
 
         # Update the critic network
         # Calculate the q value
@@ -153,6 +160,41 @@ class SAC_Algorithm:
             
     def _scale_reward(self, reward):
         return reward * self.reward_scale
+
+    def evaluate(self):
+        total_reward = 0.0
+        log_probs_average = 0.0
+        mu_average = 0.0
+        sigma_average = 0.0
+
+        observation, info = self.env.env.reset()
+        observation_tensor = th.from_numpy(observation).float().to(self.device).view(1, -1)
+
+        for idx in range(1000):
+            action, log_prob = self.actor_net(observation_tensor)
+            observation, reward, done, truncated, info = self.env.env.step(action.view(-1).detach().cpu().numpy())
+            observation_tensor = th.from_numpy(observation).float().to(self.device).view(1, -1)
+            total_reward += reward
+            log_probs_average -= log_prob
+            mu_average += self.actor_net.mu
+            sigma_average += self.actor_net.sigma
+
+            if done or truncated:
+                # reset the env
+                state, _ = self.env.env.reset()
+                self.state_tensor = th.from_numpy(state).float().to(self.device).view(1, -1)
+                action = (self.env.action_space_high + self.env.action_space_low) / 2
+                self.action_tensor = th.from_numpy(np.array(action)).float().to(self.device).view(1, -1)
+
+                if self.wandb is not None:
+                    self.wandb.log_to_wandb({
+                        "average_return": total_reward,
+                        "entropy": log_probs_average/(idx+1),
+                        "mu": mu_average/(idx+1),
+                        "sigma": sigma_average/(idx+1),
+                    })
+                return
+        
 
 
 if __name__ == "__main__":  # test function, DO NOT use it in a normal way

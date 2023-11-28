@@ -14,7 +14,6 @@ import sys
 import torch
 
 from config.parse_config import ParseConfig
-from agent.gpm_agent import GPM_Agent
 
 
 class SaveModel:
@@ -31,16 +30,8 @@ class SaveModel:
         else:
             self.saving_dir = os.path.join(self.saving_dir, "model.pth")
 
-        self.name_dict = {}
-        self.name_dict.update(ParseConfig.config["SavingModel"]["gru_params"])
-        self.name_dict.update(ParseConfig.config["SavingModel"]["lstm_params"])
-        self.name_dict.update(ParseConfig.config["SavingModel"]["lstm_target_params"])
-        self.name_dict.update(ParseConfig.config["SavingModel"]["others"])
-
-    def save_model(self, agent: GPM_Agent):
-        for key in self.name_dict:
-            self.name_dict[key] = getattr(agent, key)
-        torch.save(self.name_dict, self.saving_dir)
+    def save_model(self, to_be_saved_models: dict):
+        torch.save(to_be_saved_models, self.saving_dir)
         print("The model is successfully saved in: ", self.saving_dir)
 
 if __name__ == "__main__":  # test function, DO NOT use it in a normal way

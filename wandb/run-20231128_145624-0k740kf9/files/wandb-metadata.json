@@ -1,0 +1,111 @@
+{
+    "os": "Linux-5.15.0-89-generic-x86_64-with-glibc2.31",
+    "python": "3.11.5",
+    "heartbeatAt": "2023-11-28T13:56:25.175872",
+    "startedAt": "2023-11-28T13:56:24.327954",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "--wandb_on=T",
+        "--visualize_on=F"
+    ],
+    "state": "running",
+    "program": "/home/dong/Desktop/DT_SAC_reconstruct/start.py",
+    "codePathLocal": "start.py",
+    "codePath": "start.py",
+    "git": {
+        "remote": "https://github.com/DongTian95/DT_SAC_reconstruct.git",
+        "commit": "632c85a7a4d9e13f675ba92cbd4256a49d669558"
+    },
+    "email": "dong.tian@outlook.de",
+    "root": "/home/dong/Desktop/DT_SAC_reconstruct",
+    "host": "dong-IdeaCentre-Gaming5-14ACN6",
+    "username": "dong",
+    "executable": "/home/dong/miniconda3/envs/python311SAC/bin/python",
+    "cpu_count": 6,
+    "cpu_count_logical": 12,
+    "cpu_freq": {
+        "current": 1490.2477499999998,
+        "min": 1400.0,
+        "max": 3900.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 1882.973,
+            "min": 1400.0,
+            "max": 3900.0
+        },
+        {
+            "current": 1400.0,
+            "min": 1400.0,
+            "max": 3900.0
+        },
+        {
+            "current": 1400.0,
+            "min": 1400.0,
+            "max": 3900.0
+        },
+        {
+            "current": 1400.0,
+            "min": 1400.0,
+            "max": 3900.0
+        },
+        {
+            "current": 1400.0,
+            "min": 1400.0,
+            "max": 3900.0
+        },
+        {
+            "current": 1400.0,
+            "min": 1400.0,
+            "max": 3900.0
+        },
+        {
+            "current": 1400.0,
+            "min": 1400.0,
+            "max": 3900.0
+        },
+        {
+            "current": 1400.0,
+            "min": 1400.0,
+            "max": 3900.0
+        },
+        {
+            "current": 1400.0,
+            "min": 1400.0,
+            "max": 3900.0
+        },
+        {
+            "current": 1400.0,
+            "min": 1400.0,
+            "max": 3900.0
+        },
+        {
+            "current": 1400.0,
+            "min": 1400.0,
+            "max": 3900.0
+        },
+        {
+            "current": 1700.0,
+            "min": 1400.0,
+            "max": 3900.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 467.8895797729492,
+            "used": 62.52454376220703
+        }
+    },
+    "gpu": "NVIDIA GeForce RTX 3060",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce RTX 3060",
+            "memory_total": 12884901888
+        }
+    ],
+    "memory": {
+        "total": 14.971176147460938
+    }
+}
