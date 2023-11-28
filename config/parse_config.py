@@ -22,6 +22,9 @@ class ParseConfig:
     _instances = {}
 
     def __new__(cls, *args, **kwargs):
+        """
+        To ensure only one instance is created
+        """
         if cls not in cls._instances:
             cls._instances[cls] = super(ParseConfig, cls).__new__(cls)
         return cls._instances[cls]
@@ -35,6 +38,10 @@ class ParseConfig:
 
     @classmethod
     def del_instance(cls):
+        """
+        This function is defined to make the pipeline work properly
+        :return: None
+        """
         if cls in cls._instances:
             del cls._instances[cls]
             ParseConfig.config = None
