@@ -11,7 +11,7 @@ training_configs: &training_configs
   plan_length: 0
   epsilon_threshold: 0.1    # this is the initial value of epsilon and will be updated during training
   eta: 0.002    # for target network update (the same as in SAC)
-  alpha: 0.01    # temperature term for cross entropy
+  alpha: 0.1    # temperature term for cross entropy
   gamma: 0.98   # decay factor to stabilize Q values
   reward_scale: 1.0   # scaling factor for reward
   logging_frequency: 1000  # log every logging_frequency steps
