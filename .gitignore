@@ -1,0 +1,3 @@
+# ignore wandb log file
+**/wandb/
+**/models_params/
