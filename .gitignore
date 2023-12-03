@@ -1,3 +1,3 @@
 # ignore wandb log file
 **/wandb/
-**/models_params/
+**/DT_SAC_reconstruct/save_and_load/models_params

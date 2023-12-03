@@ -41,7 +41,8 @@ def main(_):
 
         test = SAC_Algorithm(env=environment, wandb_on=FLAGS.wandb_on)
         for j in range(ParseConfig.get_training_config()["max_steps"]):
-            print("###################", "Epoch: ", j, "###################")
+            if j % 100 == 0:
+                print("###################", "Epoch: ", j, "###################")
             test.train()
             if j % ParseConfig.get_training_config()["logging_frequency"] == 0:
                 test.evaluate()
