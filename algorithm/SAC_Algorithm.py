@@ -196,7 +196,6 @@ class SAC_Algorithm:
                 return
         
 
-
 if __name__ == "__main__":  # test function, DO NOT use it in a normal way
     from env.gym.gym_init import gym_Init
     env = gym_Init()

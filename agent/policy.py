@@ -54,7 +54,7 @@ class SAC_Policy(th.nn.Module):
         else:
             self.device = th.device("cpu")
 
-        # Initialize the network
+        # Initialize the critic network
         # Encoder Network
         self.encoder_layers = th.nn.ModuleList()
         self.encoder_layers.append(th.nn.Linear(observation_size, hidden_size, device=self.device))
